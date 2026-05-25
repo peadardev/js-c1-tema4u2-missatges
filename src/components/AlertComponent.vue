@@ -3,10 +3,9 @@ import { ref, computed, watch } from 'vue';
 import type { AlertProps } from '@/models/alert-props.interface.ts';
 
 const props = withDefaults(defineProps<AlertProps>(), {
-  message: 'Tot bé',
+  message: '',
   type: 'info',
   duration: 0,
-  flag: false,
 });
 const emit = defineEmits<{ (e: 'alert-visible'): void }>();
 

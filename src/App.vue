@@ -7,32 +7,28 @@ const alertSuccess: AlertProps = {
   message: '✅ OK: Operació correcta',
   type: 'success',
   duration: 3000,
-  flag: true,
 };
 const alertWarning: AlertProps = {
   message: "⚠ WARNING: Missatge d'alerta",
   type: 'warning',
   duration: 3000,
-  flag: true,
 };
 const alertError: AlertProps = {
   message: "❌ ERROR: Missatge d'error",
   type: 'error',
   duration: 3000,
-  flag: true,
 };
-const alertDefault: AlertProps = {
+const alertReset: AlertProps = {
   message: '',
   type: 'info',
   duration: 0,
-  flag: true,
 };
 const isVisible = ref<boolean>(false);
-const alert = ref<AlertProps>(alertDefault);
+const alert = ref<AlertProps>(alertReset);
 
 function sendAlert(alertObject: AlertProps): void {
   isVisible.value = true;
-  alertObject.flag = !alertObject.flag; //canviem el flag per que l'objecte (props) sigui diferent de l'anterior.
+  alert.value = alertReset;
   alert.value = alertObject;
 }
 </script>
