@@ -41,19 +41,11 @@ function sendAlert(alertObject: AlertProps): void {
   <main class="container">
     <h2 class="title" v-once>Component reusable</h2>
     <div class="btn-group" v-once>
-      <button
-        class="btn btn-green"
-        @click="
-          isVisible = true;
-          sendAlert(alertSuccess);
-        "
-      >
-        Correcte
-      </button>
+      <button class="btn btn-green" @click="sendAlert(alertSuccess)">Correcte</button>
       <button class="btn btn-yellow" @click="sendAlert(alertWarning)">Avís</button>
       <button class="btn btn-red" @click="sendAlert(alertError)">Error</button>
     </div>
-    <AlertComponent v-show="isVisible" v-bind="alert" @alert-visible="isVisible = false" />
+    <AlertComponent v-if="isVisible" v-bind="alert" @alert-visible="isVisible = false" />
   </main>
 </template>
 

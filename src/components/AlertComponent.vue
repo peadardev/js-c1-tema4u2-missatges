@@ -12,7 +12,7 @@ const emit = defineEmits<{ (e: 'alert-visible'): void }>();
 
 const isVisible = ref<boolean>(false);
 const style = computed<string>(getStyle);
-watch(props, activateMessage);
+watch(props, activateMessage, { immediate: true });
 
 function activateMessage() {
   if (props.duration <= 0) return;
